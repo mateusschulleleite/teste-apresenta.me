@@ -49,12 +49,12 @@ copy .env.example .env #Windows
 cp .env.example .env #Linux/macOS
 
 - Edite o .env e altere.
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=seu_banco
-DB_USERNAME=root
-DB_PASSWORD=sua_senha
+DB_CONNECTION=mysql  
+DB_HOST=127.0.0.1  
+DB_PORT=3306  
+DB_DATABASE=seu_banco  
+DB_USERNAME=root  
+DB_PASSWORD=sua_senha  
 
 - Gere a chave da aplicação  
 php artisan key:generate
