@@ -8,7 +8,7 @@ const props = defineProps({
 });
 
 function toggleMenu(){
-  emit('toggleMenu')
+  emit('toggleMenu');
 }
 
 async function logout() {

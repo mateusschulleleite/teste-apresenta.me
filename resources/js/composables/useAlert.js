@@ -1,22 +1,25 @@
-import { ref } from "vue"
+import { ref } from "vue";
 
-const showAlert = ref(false)
-const alertMessage = ref("")
+const showAlert = ref(false);
+const alertMessage = ref("");
+const type = ref("");
 
 export function useAlert() {
 
-  function alerta(message) {
-    alertMessage.value = message
-    showAlert.value = true
+  function alerta(message, messageType) {
+    alertMessage.value = message;
+    showAlert.value = true;
+    type.value = messageType ? messageType : "ok";
 
     setTimeout(() => {
-      showAlert.value = false
+      showAlert.value = false;
     }, 3000)
   }
 
   return {
     showAlert,
     alertMessage,
+    type,
     alerta
   }
 }

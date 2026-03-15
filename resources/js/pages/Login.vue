@@ -1,35 +1,32 @@
 <script setup>
-import { ref } from 'vue'
-import axios from 'axios'
+import { ref } from 'vue';
+import axios from 'axios';
+import Button from '../components/Button.vue';
+import Input from '../components/Input.vue';
+import Label from '../components/Label.vue';
+import Logo from '../components/Logo.vue';
+import { useAlert } from '../composables/useAlert';
+import Alert from '../components/Alert.vue';
 
-import Button from '../components/Button.vue'
-import Input from '../components/Input.vue'
-import Label from '../components/Label.vue'
-import Logo from '../components/Logo.vue'
-
-const email = ref('')
-const password = ref('')
+const { alerta } = useAlert();
+const email = ref('');
+const password = ref('');
 
 async function login(){
-
   try{
     const response = await axios.post('/login',{
       email: email.value,
       password: password.value
     })
 
-    console.log(email.value, password.value)
-
     if(response.data.success == true) {
-        window.location.href = "/dashboard";
-    }
+        return window.location.href = "/dashboard";
+    } 
 
+    alerta("Email ou senha inválidos!", "aviso");
   }catch(error){
-
-    console.log('Erro no login')
-
+    alerta("Email ou senha inválidos!", "aviso");
   }
-
 }
 </script>
 
@@ -55,6 +52,8 @@ async function login(){
                 </fieldset>
             </form>
         </div>
+
+        <Alert></Alert>
     </div>
 </template>
 

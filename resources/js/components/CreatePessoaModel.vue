@@ -13,8 +13,7 @@ import { useAlert } from "../composables/useAlert"
 const props = defineProps({
   modo: String,
   pessoa: Object
-})
-
+});
 const emit = defineEmits(["close", "update"])
 const { alerta } = useAlert();
 const titulo = ref("Incluir Pessoa")
@@ -42,6 +41,10 @@ onMounted(() => {
 }) 
 
 async function createPessoa() {
+  if(!validaCampos()) {
+    return;
+  }
+
   try {
     loading.value = true;
 
@@ -54,18 +57,22 @@ async function createPessoa() {
     });
 
     if(response.data.success) {
-      alerta("Pessoa incluída com sucesso!");
+      alerta("Pessoa incluída com sucesso!", "ok");
       emit('update');
       limpaCampos();
     }
   } catch (error) {
-      alerta("Erro ao incluir pessoa!");
+      alerta("Erro ao incluir pessoa!", "aviso");
   } finally {
     loading.value = false;
   }
 }
 
 async function updatePessoa() {
+  if(!validaCampos()) {
+    return;
+  }
+
   try {
     loading.value = true;
 
@@ -80,7 +87,7 @@ async function updatePessoa() {
     if(response.data.success) {
       emit('update');
       emit('close');
-      alerta("Pessoa alterada com sucesso!");
+      alerta("Pessoa alterada com sucesso!", "ok");
     }
   }catch (error) {
     console.log("Erro ao atualizar pessoa", error);
@@ -95,6 +102,27 @@ function limpaCampos() {
     cpfCnpj.value = "";
     telefone.value = "";
     email.value = "";
+}
+
+function validaCampos() {
+  if(!nome.value) {
+    alerta("O campo nome é obrigatório!", "aviso")
+    return false;
+  }else if (!tipo.value) {
+    alerta("O campo tipo é obrigatório!", "aviso")
+    return false;
+  }else if (!cpfCnpj.value) {
+    alerta("O campo CPF/CNPJ é obrigatório!", "aviso")
+    return false;
+  }else if (!telefone.value) {
+    alerta("O campo telefone é obrigatório!", "aviso")
+    return false;
+  }else if (!email.value) {
+    alerta("O campo email é obrigatório!", "aviso")
+    return false;
+  }
+  
+  return true;
 }
 </script>
 

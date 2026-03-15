@@ -60,7 +60,7 @@ async function deletePessoa() {
     const response = await axios.delete(`/api/pessoas/${pessoaSelecionada.value.id}`);
 
     if(response.data.success) {
-      alerta("Pessoa excluída com sucesso");
+      alerta("Pessoa excluída com sucesso", "ok");
       getPessoas();
     }
   }catch (error) {
@@ -139,6 +139,4 @@ async function deletePessoa() {
         <Popup v-if="popup" @close="popup = false" @delete="deletePessoa()"></Popup>
         <Loading v-if="loading"></Loading>
     </Page>
-
-
 </template>

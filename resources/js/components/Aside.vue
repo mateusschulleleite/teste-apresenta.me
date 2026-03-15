@@ -6,8 +6,7 @@ import Logo from "./Logo.vue";
 const props = defineProps({
     aberto: Boolean,
 });
-
-const emit = defineEmits(['toggleMenu'])
+const emit = defineEmits(['toggleMenu']);
 
 function toggleMenu(){
   emit('toggleMenu')
