@@ -72,5 +72,5 @@ php artisan serve
 npm run dev
 
 - Usuário Admin:  
-email: admin@teste.com
+email: admin@teste.com  
 senha: 123456
