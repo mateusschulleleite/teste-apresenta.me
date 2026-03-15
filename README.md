@@ -35,20 +35,20 @@ Ele permite cadastrar pessoas físicas e jurídicas, armazenar suas informaçõe
 - Clone o repositório:  
 git clone https://github.com/mateusschulleleite/teste-apresenta.me.git  
 
-- Navegue até pasta do projeto.  
+- Navegue até pasta do projeto:  
 cd teste-apresenta.me
 
-- Instale as dependências do Laravel.  
+- Instale as dependências do Laravel:  
 composer install
 
-- Instale as dependências do node.  
+- Instale as dependências do node:  
 npm install
 
-- Copie o arquivo .env  
+- Copie o arquivo .env:  
 copy .env.example .env #Windows  
 cp .env.example .env #Linux/macOS
 
-- Edite o .env e altere.
+- Edite o .env e altere:  
 DB_CONNECTION=mysql  
 DB_HOST=127.0.0.1  
 DB_PORT=3306  
@@ -56,19 +56,19 @@ DB_DATABASE=seu_banco
 DB_USERNAME=root  
 DB_PASSWORD=sua_senha  
 
-- Gere a chave da aplicação  
+- Gere a chave da aplicação:  
 php artisan key:generate
 
-- Rodar as migrations
+- Rodar as migrations:  
 php artisan migrate
 
-- Rodar a criação de usuário  
+- Rodar a criação de usuário:  
 php artisan db:seed --class=AdminUserSeeder
 
-- Rodar o Laravel  
+- Rodar o Laravel:  
 php artisan serve
 
-- Rodar o Vue  
+- Rodar o Vue:  
 npm run dev
 
 - Usuário Admin:  
