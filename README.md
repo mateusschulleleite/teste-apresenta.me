@@ -1,7 +1,7 @@
-# 📌 Sistema de Cadastro de Pessoas
+# Sistema de Cadastro de Pessoas
 
 ## Descrição
-Este projeto é um sistema web para gerenciamento de pessoas, construído com **Laravel** no backend e **Vue.js** no frontend.  
+- Este projeto é um sistema web para gerenciamento de pessoas, construído com **Laravel** no backend e **Vue.js** no frontend.  
 Ele permite cadastrar pessoas físicas e jurídicas, armazenar suas informações no **MariaDB**.
 ---
 
@@ -29,6 +29,8 @@ Ele permite cadastrar pessoas físicas e jurídicas, armazenar suas informaçõe
 ---
 
 ## 🚀 Instalação e Execução
+
+- Crie o banco de dados no MariaDB.
 
 - Clone o repositório:  
 git clone https://github.com/mateusschulleleite/teste-apresenta.me.git  
@@ -60,15 +62,15 @@ php artisan key:generate
 - Rodar as migrations
 php artisan migrate
 
-- Criar a migration de session  
-php artisan session:table
-
 - Rodar a criação de usuário  
 php artisan db:seed --class=AdminUserSeeder
 
 - Rodar o Laravel  
-php artisan composer
+php artisan serve
 
 - Rodar o Vue  
 npm run dev
 
+- Usuário Admin:  
+email: admin@teste.com
+senha: 123456

@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="w-full bg-white p-10 rounded-[50px] grid grid-cols-[230px_auto] items-center lg:grid-cols-[100px_auto] lg:p-5">
+    <div class="w-full bg-white p-10 rounded-[30px] grid grid-cols-[230px_auto] items-center lg:grid-cols-[100px_auto] lg:p-5">
         <div class="col-span-1 text-center">
             <span class="font-bold text-[120px] block w-full text-[#3b71a5] lg:text-5xl">{{ value }}</span>
         </div>
