@@ -120,8 +120,26 @@ function validaCampos() {
   }else if (!email.value) {
     alerta("O campo email é obrigatório!", "aviso")
     return false;
+  }else if(!validaCpfCnpj()) {
+    return false;
   }
   
+  return true;
+}
+
+function validaCpfCnpj() {
+  if(tipo.value == 1) {
+    if(cpfCnpj.value.length > 11 || cpfCnpj.value.length < 11) {
+      alerta("O CPF deve conter 11 dígitos", "aviso");
+      return false;
+    }
+  }else if (tipo.value == 2) {
+    if(cpfCnpj.value.length > 14 || cpfCnpj.value.length < 14) {
+      alerta("O CNPJ deve conter 14 dígitos", "aviso");
+      return false
+    }
+  }
+
   return true;
 }
 </script>
@@ -161,8 +179,10 @@ function validaCampos() {
               <LabelModel>CPF/CNPJ</LabelModel>
 
               <InputModel
+                @blur="validaCpfCnpj"
                 :disabled="modo === 'view'"
                 v-model="cpfCnpj"
+                type="number"
                 placeholder="Digite seu CPF/CNPJ"
               />
             </div>
@@ -170,6 +190,7 @@ function validaCampos() {
 
           <LabelModel>Telefone</LabelModel>
           <InputModel
+            type="tel"
            :disabled="modo === 'view'"
             v-model="telefone"
             placeholder="Digite seu telefone"
@@ -177,6 +198,7 @@ function validaCampos() {
 
           <LabelModel>Email</LabelModel>
           <InputModel
+            type="email"
             :disabled="modo === 'view'"
             v-model="email"
             class="mb-0!"
